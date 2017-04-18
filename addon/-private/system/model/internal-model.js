@@ -586,7 +586,8 @@ export default class InternalModel {
       changedKeys = this._changedKeys(data.attributes);
     }
 
-    assign(this._data, data.attributes);
+    this._assignAttributes(data.attributes);
+
     this.pushedData();
 
     if (this.hasRecord) {
@@ -1100,9 +1101,9 @@ export default class InternalModel {
     this.didCleanError();
     let changedKeys = this._changedKeys(data);
 
-    assign(this._data, this._inFlightAttributes);
+    this._assignAttributes(this._inFlightAttributes);
     if (data) {
-      assign(this._data, data);
+      this._assignAttributes(data);
     }
 
     this._inFlightAttributes = null;
@@ -1218,6 +1219,10 @@ export default class InternalModel {
     @private
   */
   _changedKeys(updates) {
+    if (this.hasRecord && typeof this._record._changedKeys === 'function') {
+      return this._record._changedKeys(updates);
+    }
+
     let changedKeys = [];
 
     if (updates) {
@@ -1252,6 +1257,13 @@ export default class InternalModel {
     }
 
     return changedKeys;
+  }
+
+  _assignAttributes(attributes) {
+    if (this.hasRecord && typeof this._record._assignAttributes === 'function') {
+      return this._record._assignAttributes(attributes);
+    }
+    assign(this._data, attributes);
   }
 
   toString() {
