@@ -3,7 +3,12 @@
   @module ember-data
 */
 
-import Ember from 'ember';
+import $ from 'jquery';
+
+import { Promise as EmberPromise } from 'rsvp';
+import MapWithDefault from '@ember/map/with-default';
+import { get } from '@ember/object';
+import { run } from '@ember/runloop';
 import Adapter from "../adapter";
 import {
   parseResponseHeaders,
@@ -23,13 +28,7 @@ import { instrument } from 'ember-data/-debug';
 import { warn, deprecate } from '@ember/debug';
 import { DEBUG } from '@glimmer/env';
 
-const {
-  MapWithDefault,
-  get,
-  run
-} = Ember;
-
-const Promise = Ember.RSVP.Promise;
+const Promise = EmberPromise;
 
 /**
   The REST adapter allows your store to communicate with an HTTP server by
@@ -1083,7 +1082,7 @@ const RESTAdapter = Adapter.extend(BuildURLMixin, {
     @param {Object} options jQuery ajax options to be used for the ajax request
   */
   _ajaxRequest(options) {
-    Ember.$.ajax(options);
+    $.ajax(options);
   },
 
   /**
@@ -1107,7 +1106,7 @@ const RESTAdapter = Adapter.extend(BuildURLMixin, {
           let token = heimdall.start('json.parse');
           let json;
           try {
-            json = Ember.$.parseJSON(payload);
+            json = $.parseJSON(payload);
           } catch (e) {
             json = payload;
           }
@@ -1142,7 +1141,7 @@ const RESTAdapter = Adapter.extend(BuildURLMixin, {
     let json = responseText;
 
     try {
-      json = Ember.$.parseJSON(responseText);
+      json = $.parseJSON(responseText);
     } catch (e) {
       // ignored
     }
@@ -1465,7 +1464,7 @@ if (isEnabled('ds-improved-ajax')) {
               let token = heimdall.start('json.parse');
               let json;
               try {
-                json = Ember.$.parseJSON(payload);
+                json = $.parseJSON(payload);
               } catch (e) {
                 json = payload;
               }
