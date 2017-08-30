@@ -43,20 +43,6 @@ if (Ember.VERSION.match(/^1\.([0-9]|1[0-2])\./)) {
 
 ### Unknown Global
 
-**Global**: `Ember.FEATURES`
-
-**Location**: `addon/-private/features.js` at line 4
-
-```js
-
-export default function isEnabled() {
-  return Ember.FEATURES.isEnabled(...arguments);
-}
-
-```
-
-### Unknown Global
-
 **Global**: `Ember.Namespace`
 
 **Location**: `addon/-private/core.js` at line 20
@@ -93,6 +79,20 @@ if (Ember.libraries) {
 
 if (Ember.libraries) {
   Ember.libraries.registerCoreLibrary('Ember Data', DS.VERSION);
+}
+
+```
+
+### Unknown Global
+
+**Global**: `Ember.FEATURES`
+
+**Location**: `addon/-private/features.js` at line 4
+
+```js
+
+export default function isEnabled() {
+  return Ember.FEATURES.isEnabled(...arguments);
 }
 
 ```
@@ -165,132 +165,6 @@ import Ember from 'ember';
 const EmberOrderedSet = Ember.OrderedSet;
 
 export default function OrderedSet() {
-```
-
-### Unknown Global
-
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/relationships/polymorphic-mixins-has-many-test.js` at line 174
-
-```js
-
-test("Pushing to the hasMany reflects the change on the belongsTo side - model injections true", function(assert) {
-  var injectionValue = Ember.MODEL_FACTORY_INJECTIONS;
-  Ember.MODEL_FACTORY_INJECTIONS = true;
-
-```
-
-### Unknown Global
-
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/relationships/polymorphic-mixins-has-many-test.js` at line 221
-
-```js
-*/
-testInDebug("Pushing a an object that does not implement the mixin to the mixin accepting array errors out - model injections true", function(assert) {
-  var injectionValue = Ember.MODEL_FACTORY_INJECTIONS;
-  Ember.MODEL_FACTORY_INJECTIONS = true;
-
-```
-
-### Unknown Global
-
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/relationships/polymorphic-mixins-has-many-test.js` at line 174
-
-```js
-
-test("Pushing to the hasMany reflects the change on the belongsTo side - model injections true", function(assert) {
-  var injectionValue = Ember.MODEL_FACTORY_INJECTIONS;
-  Ember.MODEL_FACTORY_INJECTIONS = true;
-
-```
-
-### Unknown Global
-
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/relationships/polymorphic-mixins-has-many-test.js` at line 175
-
-```js
-test("Pushing to the hasMany reflects the change on the belongsTo side - model injections true", function(assert) {
-  var injectionValue = Ember.MODEL_FACTORY_INJECTIONS;
-  Ember.MODEL_FACTORY_INJECTIONS = true;
-
-  try {
-```
-
-### Unknown Global
-
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/relationships/polymorphic-mixins-has-many-test.js` at line 213
-
-```js
-    });
-  } finally {
-    Ember.MODEL_FACTORY_INJECTIONS = injectionValue;
-  }
-});
-```
-
-### Unknown Global
-
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/relationships/polymorphic-mixins-has-many-test.js` at line 221
-
-```js
-*/
-testInDebug("Pushing a an object that does not implement the mixin to the mixin accepting array errors out - model injections true", function(assert) {
-  var injectionValue = Ember.MODEL_FACTORY_INJECTIONS;
-  Ember.MODEL_FACTORY_INJECTIONS = true;
-
-```
-
-### Unknown Global
-
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/relationships/polymorphic-mixins-has-many-test.js` at line 222
-
-```js
-testInDebug("Pushing a an object that does not implement the mixin to the mixin accepting array errors out - model injections true", function(assert) {
-  var injectionValue = Ember.MODEL_FACTORY_INJECTIONS;
-  Ember.MODEL_FACTORY_INJECTIONS = true;
-
-  try {
-```
-
-### Unknown Global
-
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/relationships/polymorphic-mixins-has-many-test.js` at line 259
-
-```js
-    });
-  } finally {
-    Ember.MODEL_FACTORY_INJECTIONS = injectionValue;
-  }
-});
-```
-
-### Unknown Global
-
-**Global**: `Ember.Inflector`
-
-**Location**: `tests/integration/serializers/rest-serializer-test.js` at line 79
-
-```js
-test("modelNameFromPayloadKey returns always same modelName even for uncountable multi words keys", function(assert) {
-  assert.expect(2);
-  Ember.Inflector.inflector.uncountable('words');
-  var expectedModelName = 'multi-words';
-  assert.equal(env.restSerializer.modelNameFromPayloadKey('multi_words'), expectedModelName);
 ```
 
 ### Unknown Global
@@ -463,6 +337,34 @@ const {
 
 ### Unknown Global
 
+**Global**: `Ember.GUID_KEY`
+
+**Location**: `addon/-private/system/model/internal-model.js` at line 126
+
+```js
+
+    // this ensure ordered set can quickly identify this as unique
+    this[Ember.GUID_KEY] = InternalModelReferenceId++ + 'internal-model';
+
+    this.store = store;
+```
+
+### Unknown Global
+
+**Global**: `Ember.testing`
+
+**Location**: `addon/-private/system/model/internal-model.js` at line 496
+
+```js
+      // TODO: use run.schedule once we drop 1.13
+      if (!run.currentRunLoop) {
+        assert('You have turned on testing mode, which disabled the run-loop\'s autorun.\n                  You will need to wrap any code with asynchronous side-effects in a run', Ember.testing);
+      }
+      this._scheduledDestroy = run.backburner.schedule('destroy', this, '_checkForOrphanedInternalModels')
+```
+
+### Unknown Global
+
 **Global**: `Ember.beginPropertyChanges`
 
 **Location**: `addon/-private/system/model/model.js` at line 640
@@ -487,20 +389,6 @@ const {
     Ember.endPropertyChanges();
   },
 
-```
-
-### Unknown Global
-
-**Global**: `Ember.GUID_KEY`
-
-**Location**: `addon/-private/system/model/internal-model.js` at line 118
-
-```js
-
-    // this ensure ordered set can quickly identify this as unique
-    this[Ember.GUID_KEY] = InternalModelReferenceId++ + 'internal-model';
-
-    this.store = store;
 ```
 
 ### Unknown Global
@@ -543,6 +431,48 @@ export const relatedTypesDescriptor = computed(function() {
       Ember.Logger.log(reason, reason.stack);
       throw reason;
     }
+```
+
+### Unknown Global
+
+**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
+
+**Location**: `tests/helpers/model-factory-injection.js` at line 4
+
+```js
+import hasEmberVersion from 'ember-test-helpers/has-ember-version';
+
+const ORIGINAL_MODEL_FACTORY_INJECTIONS = Ember.MODEL_FACTORY_INJECTIONS;
+
+export function setup(value) {
+```
+
+### Unknown Global
+
+**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
+
+**Location**: `tests/helpers/model-factory-injection.js` at line 4
+
+```js
+import hasEmberVersion from 'ember-test-helpers/has-ember-version';
+
+const ORIGINAL_MODEL_FACTORY_INJECTIONS = Ember.MODEL_FACTORY_INJECTIONS;
+
+export function setup(value) {
+```
+
+### Unknown Global
+
+**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
+
+**Location**: `tests/helpers/model-factory-injection.js` at line 14
+
+```js
+
+  if (!hasEmberVersion(2, 14)) {
+    Ember.MODEL_FACTORY_INJECTIONS = value;
+  }
+}
 ```
 
 ### Unknown Global
@@ -827,62 +757,6 @@ if (Ember.inject && service) {
 
 ### Unknown Global
 
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/injection-test.js` at line 10
-
-```js
-
-let env, hasFactoryFor, originalLookupFactory, originalOwnerLookupFactory, originalFactoryFor;
-let originalMODEL_FACTORY_INJECTIONS = Ember.MODEL_FACTORY_INJECTIONS;
-
-const model = {
-```
-
-### Unknown Global
-
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/injection-test.js` at line 10
-
-```js
-
-let env, hasFactoryFor, originalLookupFactory, originalOwnerLookupFactory, originalFactoryFor;
-let originalMODEL_FACTORY_INJECTIONS = Ember.MODEL_FACTORY_INJECTIONS;
-
-const model = {
-```
-
-### Unknown Global
-
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/injection-test.js` at line 84
-
-```js
-module('integration/injection eager injections', {
-  setup() {
-    Ember.MODEL_FACTORY_INJECTIONS = true;
-    env = setupStore();
-
-```
-
-### Unknown Global
-
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/injection-test.js` at line 95
-
-```js
-  teardown() {
-    // can be removed once we no longer support ember versions without lookupFactory
-    Ember.MODEL_FACTORY_INJECTIONS = originalMODEL_FACTORY_INJECTIONS;
-
-    run(env.store, 'destroy');
-```
-
-### Unknown Global
-
 **Global**: `Ember.OrderedSet`
 
 **Location**: `tests/integration/record-array-manager-test.js` at line 307
@@ -981,37 +855,9 @@ module('integration/injection eager injections', {
 
 ### Unknown Global
 
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/dummy/app/app.js` at line 9
-
-```js
-let App;
-
-Ember.MODEL_FACTORY_INJECTIONS = true;
-
-App = Application.extend({
-```
-
-### Unknown Global
-
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/relationships/belongs-to-test.js` at line 16
-
-```js
-
-let env, store, User, Message, Post, Comment, Book, Chapter, Author, NewMessage;
-const injectionValue = Ember.MODEL_FACTORY_INJECTIONS;
-
-module("integration/relationship/belongs_to Belongs-To Relationships", {
-```
-
-### Unknown Global
-
 **Global**: `Ember.testing`
 
-**Location**: `tests/integration/relationships/belongs-to-test.js` at line 543
+**Location**: `tests/integration/relationships/belongs-to-test.js` at line 547
 
 ```js
 test("relationshipsByName is cached in production", function(assert) {
@@ -1025,7 +871,7 @@ test("relationshipsByName is cached in production", function(assert) {
 
 **Global**: `Ember.testing`
 
-**Location**: `tests/integration/relationships/belongs-to-test.js` at line 561
+**Location**: `tests/integration/relationships/belongs-to-test.js` at line 565
 
 ```js
 test("relatedTypes is cached in production", function(assert) {
@@ -1039,7 +885,7 @@ test("relatedTypes is cached in production", function(assert) {
 
 **Global**: `Ember.testing`
 
-**Location**: `tests/integration/relationships/belongs-to-test.js` at line 579
+**Location**: `tests/integration/relationships/belongs-to-test.js` at line 583
 
 ```js
 test("relationships is cached in production", function(assert) {
@@ -1051,37 +897,9 @@ test("relationships is cached in production", function(assert) {
 
 ### Unknown Global
 
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/relationships/belongs-to-test.js` at line 16
-
-```js
-
-let env, store, User, Message, Post, Comment, Book, Chapter, Author, NewMessage;
-const injectionValue = Ember.MODEL_FACTORY_INJECTIONS;
-
-module("integration/relationship/belongs_to Belongs-To Relationships", {
-```
-
-### Unknown Global
-
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/relationships/belongs-to-test.js` at line 88
-
-```js
-
-  afterEach() {
-    Ember.MODEL_FACTORY_INJECTIONS = injectionValue;
-    run(env.container, 'destroy');
-  }
-```
-
-### Unknown Global
-
 **Global**: `Ember.testing`
 
-**Location**: `tests/integration/relationships/belongs-to-test.js` at line 543
+**Location**: `tests/integration/relationships/belongs-to-test.js` at line 547
 
 ```js
 test("relationshipsByName is cached in production", function(assert) {
@@ -1095,7 +913,7 @@ test("relationshipsByName is cached in production", function(assert) {
 
 **Global**: `Ember.testing`
 
-**Location**: `tests/integration/relationships/belongs-to-test.js` at line 549
+**Location**: `tests/integration/relationships/belongs-to-test.js` at line 553
 
 ```js
   let oldCacheable = relationshipsByName._cacheable;
@@ -1109,7 +927,7 @@ test("relationshipsByName is cached in production", function(assert) {
 
 **Global**: `Ember.testing`
 
-**Location**: `tests/integration/relationships/belongs-to-test.js` at line 554
+**Location**: `tests/integration/relationships/belongs-to-test.js` at line 558
 
 ```js
     assert.equal(get(model, 'relationshipsByName'), get(model, 'relationshipsByName'), 'relationshipsByName are cached');
@@ -1123,7 +941,7 @@ test("relationshipsByName is cached in production", function(assert) {
 
 **Global**: `Ember.testing`
 
-**Location**: `tests/integration/relationships/belongs-to-test.js` at line 561
+**Location**: `tests/integration/relationships/belongs-to-test.js` at line 565
 
 ```js
 test("relatedTypes is cached in production", function(assert) {
@@ -1137,7 +955,7 @@ test("relatedTypes is cached in production", function(assert) {
 
 **Global**: `Ember.testing`
 
-**Location**: `tests/integration/relationships/belongs-to-test.js` at line 567
+**Location**: `tests/integration/relationships/belongs-to-test.js` at line 571
 
 ```js
   let oldCacheable = relatedTypes._cacheable;
@@ -1151,7 +969,7 @@ test("relatedTypes is cached in production", function(assert) {
 
 **Global**: `Ember.testing`
 
-**Location**: `tests/integration/relationships/belongs-to-test.js` at line 572
+**Location**: `tests/integration/relationships/belongs-to-test.js` at line 576
 
 ```js
     assert.equal(get(model, 'relatedTypes'), get(model, 'relatedTypes'), 'relatedTypes are cached');
@@ -1165,7 +983,7 @@ test("relatedTypes is cached in production", function(assert) {
 
 **Global**: `Ember.testing`
 
-**Location**: `tests/integration/relationships/belongs-to-test.js` at line 579
+**Location**: `tests/integration/relationships/belongs-to-test.js` at line 583
 
 ```js
 test("relationships is cached in production", function(assert) {
@@ -1179,7 +997,7 @@ test("relationships is cached in production", function(assert) {
 
 **Global**: `Ember.testing`
 
-**Location**: `tests/integration/relationships/belongs-to-test.js` at line 585
+**Location**: `tests/integration/relationships/belongs-to-test.js` at line 589
 
 ```js
   let oldCacheable = relationships._cacheable;
@@ -1193,7 +1011,7 @@ test("relationships is cached in production", function(assert) {
 
 **Global**: `Ember.testing`
 
-**Location**: `tests/integration/relationships/belongs-to-test.js` at line 590
+**Location**: `tests/integration/relationships/belongs-to-test.js` at line 594
 
 ```js
     assert.equal(get(model, 'relationships'), get(model, 'relationships'), 'relationships are cached');
@@ -1201,172 +1019,4 @@ test("relationships is cached in production", function(assert) {
     Ember.testing = oldTesting;
     relationships._cacheable = oldCacheable;
   }
-```
-
-### Unknown Global
-
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/relationships/has-many-test.js` at line 1351
-
-```js
-  assert.expect(1);
-
-  let injectionValue = Ember.MODEL_FACTORY_INJECTIONS;
-  Ember.MODEL_FACTORY_INJECTIONS = true;
-
-```
-
-### Unknown Global
-
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/relationships/has-many-test.js` at line 1351
-
-```js
-  assert.expect(1);
-
-  let injectionValue = Ember.MODEL_FACTORY_INJECTIONS;
-  Ember.MODEL_FACTORY_INJECTIONS = true;
-
-```
-
-### Unknown Global
-
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/relationships/has-many-test.js` at line 1352
-
-```js
-
-  let injectionValue = Ember.MODEL_FACTORY_INJECTIONS;
-  Ember.MODEL_FACTORY_INJECTIONS = true;
-
-  try {
-```
-
-### Unknown Global
-
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/relationships/has-many-test.js` at line 1364
-
-```js
-    });
-  } finally {
-    Ember.MODEL_FACTORY_INJECTIONS = injectionValue;
-  }
-});
-```
-
-### Unknown Global
-
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/relationships/polymorphic-mixins-belongs-to-test.js` at line 159
-
-```js
-test("Setting the polymorphic belongsTo gets propagated to the inverse side - model injections true", function(assert) {
-  assert.expect(2);
-  var injectionValue = Ember.MODEL_FACTORY_INJECTIONS;
-  Ember.MODEL_FACTORY_INJECTIONS = true;
-
-```
-
-### Unknown Global
-
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/relationships/polymorphic-mixins-belongs-to-test.js` at line 199
-
-```js
-
-testInDebug("Setting the polymorphic belongsTo with an object that does not implement the mixin errors out - model injections true", function(assert) {
-  var injectionValue = Ember.MODEL_FACTORY_INJECTIONS;
-  Ember.MODEL_FACTORY_INJECTIONS = true;
-
-```
-
-### Unknown Global
-
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/relationships/polymorphic-mixins-belongs-to-test.js` at line 159
-
-```js
-test("Setting the polymorphic belongsTo gets propagated to the inverse side - model injections true", function(assert) {
-  assert.expect(2);
-  var injectionValue = Ember.MODEL_FACTORY_INJECTIONS;
-  Ember.MODEL_FACTORY_INJECTIONS = true;
-
-```
-
-### Unknown Global
-
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/relationships/polymorphic-mixins-belongs-to-test.js` at line 160
-
-```js
-  assert.expect(2);
-  var injectionValue = Ember.MODEL_FACTORY_INJECTIONS;
-  Ember.MODEL_FACTORY_INJECTIONS = true;
-
-  try {
-```
-
-### Unknown Global
-
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/relationships/polymorphic-mixins-belongs-to-test.js` at line 194
-
-```js
-    });
-  } finally {
-    Ember.MODEL_FACTORY_INJECTIONS = injectionValue;
-  }
-});
-```
-
-### Unknown Global
-
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/relationships/polymorphic-mixins-belongs-to-test.js` at line 199
-
-```js
-
-testInDebug("Setting the polymorphic belongsTo with an object that does not implement the mixin errors out - model injections true", function(assert) {
-  var injectionValue = Ember.MODEL_FACTORY_INJECTIONS;
-  Ember.MODEL_FACTORY_INJECTIONS = true;
-
-```
-
-### Unknown Global
-
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/relationships/polymorphic-mixins-belongs-to-test.js` at line 200
-
-```js
-testInDebug("Setting the polymorphic belongsTo with an object that does not implement the mixin errors out - model injections true", function(assert) {
-  var injectionValue = Ember.MODEL_FACTORY_INJECTIONS;
-  Ember.MODEL_FACTORY_INJECTIONS = true;
-
-  try {
-```
-
-### Unknown Global
-
-**Global**: `Ember.MODEL_FACTORY_INJECTIONS`
-
-**Location**: `tests/integration/relationships/polymorphic-mixins-belongs-to-test.js` at line 230
-
-```js
-    });
-  } finally {
-    Ember.MODEL_FACTORY_INJECTIONS = injectionValue;
-  }
-});
 ```
